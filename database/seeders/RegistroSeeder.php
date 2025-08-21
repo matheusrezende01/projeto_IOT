@@ -42,8 +42,25 @@ class RegistroSeeder extends Seeder
                     case 'umidade':
                         $valor = $faker->randomFloat(2, 20, 90);
                         break;
+                        case 'luminosidade':
+                            $valor = $faker->numberBetween(0, 1000);
+                            break;
+                            case 'presenca':
+                                $valor = $faker->randomElement(['ON', 'OFF']);
+                                break;
+                                default:
+                                $valor = $faker->randomFloat(2, 0, 100);
+                                break;
                 }
+
+                Registro::create([
+                    'sensor_id' => $sensor->id,
+                    'valor' => $valor,
+                    'unidade' => $unidade,
+                    'data_hora' => $dataAtual->format('Y-m-d H:i:s'),
+                ]);
             }
+            $dataAtual->addMinutes(10);
           }
 
         
