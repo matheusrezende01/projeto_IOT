@@ -20,7 +20,8 @@ class AmbienteCreate extends Component
         ]);
 
         session()->flash('message', 'Ambiente cadastrado com sucesso');
-       
+       $this->reset(['nome', 'descricao', 'status']);
+       return redirect()->route('ambiente.list');
    
     }
     public function render()

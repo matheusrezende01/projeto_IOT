@@ -56,7 +56,7 @@
             </div>
 
             <div class="mt-3">
-                {{ $alunos->links() }}
+                {{ $ambientes->links() }}
             </div>
         </div>
     </div>

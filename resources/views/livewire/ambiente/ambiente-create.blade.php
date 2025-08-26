@@ -25,14 +25,14 @@
               
 
                 <div class="mb-3">
-                    <label for="cpf">descricao</label>
+                    <label for="descricao">descricao</label>
                     <input type="text" class="form-control @error('descricao') is-invalid @enderror"
                         id="descricao" wire:model.defer="descricao" placeholder="Insira a descrição do ambiente">
                     @error('descricao') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="mb-3">
-                    <label for="matricula">Status</label>
+                    <label for="stauts">Status</label>
                     <input type="text" class="form-control @error('status') is-invalid @enderror"
                         id="status" wire:model.defer="status" placeholder="Ex inativo ou ativo o ambiente">
                     @error('status') <div class="invalid-feedback">{{ $message }}</div> @enderror
