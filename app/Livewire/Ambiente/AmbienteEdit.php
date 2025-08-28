@@ -17,7 +17,7 @@ class AmbienteEdit extends Component
     {
 
         $ambiente = Ambiente::find($id);
-        if($ambiente == null ){
+        if ($ambiente == null) {
             session()->flash('error', 'Ambiente não encontrado');
             return redirect()->route('ambiente.list');
         }
@@ -25,25 +25,23 @@ class AmbienteEdit extends Component
         $this->nome = $ambiente->nome;
         $this->descricao = $ambiente->descricao;
         $this->status = $ambiente->status;
-
     }
     public function update()
 
     {
 
-$ambiente = Ambiente::find($this->ambienteId);
+        $ambiente = Ambiente::find($this->ambienteId);
 
-$ambiente->update([
-    'nome' => $this->nome,
-    'descricao' => $this->descricao,
-    'status' => $this->status,
+        $ambiente->update([
+            'nome' => $this->nome,
+            'descricao' => $this->descricao,
+            'status' => $this->status,
 
 
-]);
-    
-        seession()->flash('message', 'Ambiente atualizado com sucesso');
+        ]);
+
+        session()->flash('message', 'Ambiente atualizado com sucesso');
         return redirect()->route('ambiente.list');
-      
     }
     public function render()
     {

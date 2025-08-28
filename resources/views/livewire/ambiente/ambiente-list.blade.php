@@ -2,10 +2,10 @@
 <div class="container mt-4">
     <div class="row mb-3">
         <div class="col-md-6">
-            <h2>Alunos</h2>
+            <h2>Ambientes</h2>
         </div>
         <div class="col-md-6 text-end">
-            <a href="{{ route('aluno.create') }}" class="btn btn-primary">
+            <a href="{{ route('ambiente.create') }}" class="btn btn-primary">
                 <i class="bi bi-plus-circle"></i> Novo Ambiente
             </a>
         </div>
@@ -53,10 +53,6 @@
                         @endforelse
                     </tbody>
                 </table>
-            </div>
-
-            <div class="mt-3">
-                {{ $ambientes->links() }}
             </div>
         </div>
     </div>

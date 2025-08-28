@@ -1,79 +1,62 @@
-<div class="container mt-4">
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <h2>Ambiente</h2>
-        </div>
-        <div class="col-md-6 text-end">
-            <a href="{{ route('ambiente.create') }}" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> Novo Ambiente
-            </a>
-        </div>
-    </div>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 
-    <div class="card">
-        <div class="card-body">
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <input type="text" wire:model.live="search" 
-                    class="form-control" placeholder="Buscar ambiente...">
+        
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0"><i class="bi bi-pencil-square me-2"></i>Editar ambiente</h4>
                 </div>
-                <div class="col-md-3">
-                    <select wire:model="perPage" class="form-select">
-                        <option value="10">10 por página</option>
-                        <option value="25">25 por página</option>
-                        <option value="50">50 por página</option>
-                        <option value="100">100 por página</option>
-                    </select>
+
+                <div class="card-body">
+
+                
+                    @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            <i class="bi bi-check-circle-fill me-2"></i>{{ session('success') }}
+                        </div>
+                    @endif
+
+                 
+                    <form wire:submit.prevent="update">
+
+                       
+                        <div class="mb-3">
+                            <label class="form-label">Nome:</label>
+                            <input type="nome" wire:model.defer="nome" class="form-control form-control-lg" placeholder="Digite o nome completo">
+                            @error('nome') <small class="text-danger">{{ $message }}</small> @enderror
+                        </div>
+
+                      
+                        <div class="mb-3">
+                            <label class="form-label">Descricao:</label>
+                            <input type="descricao" wire:model.defer="cpf" class="form-control form-control-lg">
+                            @error('descricao') <small class="text-danger">{{ $message }}</small> @enderror
+                        </div>
+
+                     
+                        <div class="mb-3">
+                           <select class="form-select mb-2" aria-label="Default select example" wire:model.defer="status">
+                    <option selected>Selecione</option>
+                    <option value="1">Ativo</option>
+                    <option value="0">Inativo</option>
+                </select>
+                            @error('status') <small class="text-danger">{{ $message }}</small> @enderror
+                        </div>
+
+
+                        <a href="{{route('ambiente.list')}}" class="btn btn-secondary">Voltar</a>
+                <button class="btn"></button>
+
+                
+
+                <button type="submit" class="btn btn-success w-10  shadow-sm hover-shadow">
+                    <i class="bi bi-pencil-square me-1"></i> Atualizar Ambiente
+                </button>
+                    </form>
                 </div>
             </div>
 
-            @if(session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
-
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Descricao</th>
-                            <th>Status</th>
-                          
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($ambientes as $ambiente)
-                            <tr>
-                                <td>{{ $ambiente->nome }}</td>
-                                <td>{{ $ambiente->descricao }}</td>
-                                <td>{{ $ambiente->status }}</td>
-                                <td>
-                                    <a href="{{ route('ambiente.edit', $ambiente->id) }}" 
-                                        class="btn btn-sm btn-warning">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <button wire:click="delete({{ $ambiente->id }})" 
-                                        class="btn btn-sm btn-outline-danger me-1" tittle="Excluir"
-                                        wire:confirm="Tem certeza?">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center">
-                                    Nenhum ambiente encontrado.</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="mt-3">
-                {{ $ambientes->links() }}
-            </div>
         </div>
     </div>
 </div>
