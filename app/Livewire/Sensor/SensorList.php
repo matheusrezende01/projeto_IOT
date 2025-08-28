@@ -2,12 +2,29 @@
 
 namespace App\Livewire\Sensor;
 
+use App\Models\Sensor;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class SensorList extends Component
 {
+    
+    use WithPagination;
+
+    public $search = '';
+    public $perPage = 10;
+
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'perPage' => ['except' => 10],
+    ];
+
     public function render()
     {
-        return view('livewire.sensor.sensor-list');
+        $sesor = Sensor::all();
+        return view('livewire.sensor.sensor-list', compact('sensor'));
     }
-}
+
+
+    }
+
