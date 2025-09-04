@@ -21,13 +21,14 @@ class AmbienteList extends Component
 
     public function render()
     {
-        $ambientes = Ambiente::all();
-        return view('livewire.ambiente.ambiente-list', compact('ambientes'));
+        $ambiente = Ambiente::all();
+        return view('livewire.ambiente.ambiente-list', compact('ambiente'));
     }
-public function delete(){
-    
+public function delete($id){
+    $ambinete_id =  Ambiente::find($id);
+
+    $ambinete_id->delete();
 }
-   
-     
+
     }
 
