@@ -24,7 +24,11 @@ class SensorList extends Component
         $sesor = Sensor::all();
         return view('livewire.sensor.sensor-list', compact('sensor'));
     }
+public function delete($id){
+    $sensor_id =  Sensor::find($id);
 
+    $sensor_id->delete();
+}
 
     }
 

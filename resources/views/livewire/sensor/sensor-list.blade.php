@@ -30,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($ambientes as $ambiente)
+                        @forelse($sensors as $sensor)
                             <tr>
                                 <td>{{ $sensor->nome }}</td>
                                 <td>{{ $sensor->codigo }}</td>
@@ -52,7 +52,7 @@
                         @empty
                             <tr>
                                 <td colspan="5" class="text-center">
-                                    Nenhum ambiente encontrado.</td>
+                                    Nenhum sensor encontrado.</td>
                             </tr>
                         @endforelse
                     </tbody>
