@@ -60,7 +60,7 @@
                     <option value="0">Inativo</option>
                 </select>
 
-                <button type="submit" class="btn btn-success">Cadastrar Ambiente</button>
+                <button type="submit" class="btn btn-success">Cadastrar Sensor</button>
             </form>
         </div>
     </div>
