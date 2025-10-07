@@ -18,7 +18,7 @@
                     @endif
 
                  
-                    <form wire:submit.prevent="update">
+                    <form wire:submit.prevent="save">
 
                        
                         <div class="mb-3">

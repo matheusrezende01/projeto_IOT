@@ -30,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($sensors as $sensor)
+                        @forelse($sensor as $sensor)
                             <tr>
                                 <td>{{ $sensor->nome }}</td>
                                 <td>{{ $sensor->codigo }}</td>
@@ -43,7 +43,7 @@
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     <button wire:click="delete({{ $sensor->id }})" 
-                                        class="btn btn-sm btn-outline-danger me-1" tittle="Excluir"
+                                        class="btn btn-sm btn-outline-danger me-1" tittle="delete"
                                         wire:confirm="Tem certeza?">
                                         <i class="bi bi-trash"></i>
                                     </button>

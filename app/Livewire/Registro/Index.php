@@ -22,10 +22,10 @@ class Index extends Component
   ];
 
   public function render(){
-    $registros = Registro::where('sensor_id', 'like', "{this->search}%")
-    ->orWhere('valor', 'like', "{this->search}%")
-    ->orwhere('unidade', 'like', "{this->search}%")
-    ->orwhere('data_hora', 'like', "{this->search}%")
+    $registros = Registro::where('sensor_id', 'like', "%{$this->search}%")
+    ->orWhere('valor', 'like', "%{$this->search}%")
+    ->orwhere('unidade', 'like', "%{$this->search}%")
+    ->orwhere('data_hora', 'like', "%{$this->search}%")
     ->orderByDesc('id', 'data_hora', 'valor', 'unidade', 'sensor_id')
     ->paginate($this->perpage);
 
