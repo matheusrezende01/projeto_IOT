@@ -14,3 +14,5 @@ Route::get('registro/index', [RegistroController::class, "index"]);
 Route::get('sensor/status', [SensorController::class, "status"]);
 
 Route::put('sensor/update', [SensorController::class, "update"]);
+
+Route::get('/sensor/{codigo}', [SensorController::class, 'buscarPorCodigo']);
