@@ -27,6 +27,12 @@ class SensorList extends Component
 
         session()->flash('message', 'Status do sensor atualizado com sucesso.');
     }
+
+         public function delete($id){
+    $sensor_id =  Sensor::find($id);
+
+    $sensor_id->delete();
+         }
  
     public function render()
     {
@@ -35,7 +41,11 @@ class SensorList extends Component
         ->orWhere('codigo', 'like',  "%{$this->search}%")
         ->orWhere('status', 'like', "%{$this->search}%")
         ->paginate($this->perPage);
- 
         return view('livewire.sensor.sensor-list', compact('sensor'));
     }
+
+   
+        
+        
+    
 }

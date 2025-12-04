@@ -4,6 +4,7 @@
 use App\Livewire\Ambiente\AmbienteCreate;
 use App\Livewire\Ambiente\AmbienteEdit;
 use App\Livewire\Ambiente\AmbienteList;
+use App\Livewire\Auth\Login;
 use App\Models\Ambiente;
 
 use App\Livewire\Dashboard;
@@ -30,7 +31,7 @@ Route::get('ambiente/create', AmbienteCreate::class)->name('ambiente.create');
 Route::get('ambiente/edit/{id}', AmbienteEdit::class)->name('ambiente.edit');
 Route::get('ambiente/list', AmbienteList::class)->name('ambiente.list');
 
-Route::get('/', Dashboard::class);
-
+Route::get('dashboard', Dashboard::class)->middleware('auth')->name('dashboard');
+Route::get('/login', Login::class)->name('login');
 
 
